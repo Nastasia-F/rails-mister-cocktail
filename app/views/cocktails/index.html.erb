@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Cocktail party</h1>
   <ul class="list-group">
-    <li><% @cocktails.each do |cocktail| %></li>
+    <% @cocktails.each do |cocktail| %>
       <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
     <% end %>
     <%= link_to "Ajouter un nouveau Cocktail", new_cocktail_path %>
