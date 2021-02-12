@@ -1,10 +1,17 @@
-<div class="container">
-  <h1>Cocktail party</h1>
-  <ul class="list-group">
-    <% @cocktails.each do |cocktail| %>
-      <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-    <% end %>
-    <%= link_to "Ajouter un nouveau Cocktail", new_cocktail_path %>
-  </ul>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/random);">
+  <div class="container">
+    <h1><strong>Sortez les shakers !</strong></h1>
+    <p>On invite nos mixologues préférés à créer une recette de cocktail EXCLUSIVE !</p>
+    <a class="btn btn-flat" href="#"><%= link_to "Ajouter un nouveau Cocktail", new_cocktail_path, class: "btn btn-ghost" %></a>
+  </div>
 </div>
 
+<div class="container">
+  <div class="cards">
+    <% @cocktails.each do |cocktail| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random)">
+        <%= link_to cocktail.name, cocktail_path(cocktail) %>
+      </div>
+    <% end %>
+  </div>
+</div>
