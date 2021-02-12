@@ -1,16 +1,19 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/random);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dco73jgl2/image/upload/v1613142659/v30namkedqgkl3fyom7r.jpg);">
   <div class="container">
     <h1><strong>Sortez les shakers !</strong></h1>
     <p>On invite nos mixologues préférés à créer une recette de cocktail EXCLUSIVE !</p>
-    <a class="btn btn-flat" href="#"><%= link_to "Ajouter un nouveau Cocktail", new_cocktail_path, class: "btn btn-ghost" %></a>
+    <%= link_to "Ajouter un nouveau Cocktail", new_cocktail_path, class: "btn btn-ghost" %>
   </div>
 </div>
 
 <div class="container">
   <div class="cards">
     <% @cocktails.each do |cocktail| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random)">
-        <%= link_to cocktail.name, cocktail_path(cocktail) %>
+      <div class="card-category">
+        <%= link_to cocktail_path(cocktail) do %>
+          <%= cocktail.name %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
+        <% end %>
       </div>
     <% end %>
   </div>
