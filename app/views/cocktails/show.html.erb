@@ -1,12 +1,14 @@
-<div class="container">
-  <ul class="list-group">
-    <li><%= @cocktail.name %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dco73jgl2/image/upload/v1613142318/g8606vc4giaev6iad2aw.jpg);">
+  <div class="container">
+    <ul>
+      <%= @cocktail.name %>
         <% @cocktail.doses.each do |dose| %>
           <%= "#{dose.description} - #{dose.ingredient.name}" %>
           <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete, data: { confirm: "Are you sure?" } do %>
             <i class="far fa-trash-alt"></i>
           <% end %>
-        <% end %></li>
-  </ul>
-  <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail) %>
+        <% end %>
+      </ul>
+    <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail) %>
+  </div>
 </div>
